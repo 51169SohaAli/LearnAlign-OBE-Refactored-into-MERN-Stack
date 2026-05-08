@@ -39,7 +39,6 @@ The project was initially built using HTML, CSS, JavaScript, PHP, and MySQL, and
 - Express.js
 - React.js
 - Node.js
-- Git & GitHub
 
 ---
 
