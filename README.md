@@ -45,3 +45,6 @@ The project was initially built using HTML, CSS, JavaScript, PHP, and MySQL, and
 
 ## 🎯 Project Status
 🚧 In active development (Migrating to MERN stack)
+
+## 📷 Screenshots / Demo
+The MERN stack version is currently under development, and its screenshots and demo will be added upon completion. A video demonstration of the original PHP-based system is available on this link: https://github.com/51169SohaAli/LearnAlign-OBE/tree/main/videos
