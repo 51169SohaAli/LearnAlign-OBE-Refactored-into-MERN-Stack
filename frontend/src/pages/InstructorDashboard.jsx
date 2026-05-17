@@ -20,7 +20,11 @@ function InstructorDashboard() {
 
     try {
 
-      const response = await axios.get("http://localhost:5000/api/courses");
+      const instructorId = localStorage.getItem("userId");
+
+      const response = await axios.get(
+        `http://localhost:5000/api/courses/instructor/${instructorId}`
+      );
 
       setCourses(response.data);
 

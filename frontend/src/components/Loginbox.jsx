@@ -32,6 +32,8 @@ const handleStudentLogin = async (e) => {
     if (res.ok){
       alert("Student login successful!");
       localStorage.setItem("role", data.role);
+      localStorage.setItem("userId", data.id);
+      localStorage.setItem("user",JSON.stringify(data));
       navigate("/student-dashboard");
     }else{
       alert("Login failed.");
@@ -59,7 +61,9 @@ const handleInstructorLogin = async (e) => {
 
     if (res.ok) {
       localStorage.setItem("role", data.role);
-      if(data.role == "obe") {
+      localStorage.setItem("userId", data.id);
+      localStorage.setItem("user",JSON.stringify(data));
+      if(data.role === "obe") {
         alert("OBE incharge login successful")
         navigate("/obe-dashboard");
       }else{
@@ -193,7 +197,7 @@ const handleInstructorLogin = async (e) => {
   {/* Overlay Button */}
   <button
     id="overlayBtn"
-    className="absolute left-1/2 top-76 -translate-x-1/2 w-[143.67px] h-10 bor cursor-pointer"
+    className="absolute left-1/2 top-76 -translate-x-1/2 w-[143.67px] h-10 cursor-pointer"
   type="button"
   onClick={() => setRightPanelActive(!rightPanelActive)}
 ></button>

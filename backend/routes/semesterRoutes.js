@@ -23,4 +23,24 @@ router.post("/", async (req, res) =>{
     }
 });
 
+router.get("/current", async (req, res) => {
+  try {
+    const semester = await Semesters.findOne().sort({ _id: -1 });
+
+    if (!semester) {
+      return res.json({ semester: null });
+    }
+
+    res.json({
+      semester: semester.name
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      semester: null,
+      message: error.message
+    });
+  }
+});
+
 module.exports = router;

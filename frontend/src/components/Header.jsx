@@ -1,15 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ReactLogo from "../assets/react.svg";
+import { useNavigate } from "react-router-dom";
 
 function Header({ toggleSidebar, isOpen }) {
   const [open, setOpen] = useState(false);
+  const [profileImage, setProfileImage] = useState(ReactLogo);
+  const [name, setName] = useState("");
+  const navigate = useNavigate();
+  
 
   const toggleDropdown = () => {
     setOpen(!open);
   };
 
+  useEffect(()=>{
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if(user && user.name){
+      setName(user.name);
+    }
+  },[]);
+
+  const handleImageChange = (e) =>{
+    const file = e.target.files[0];
+
+    if(file){
+      const imageUrl = URL.createObjectURL(file);
+      setProfileImage(imageUrl); 
+    }
+
+  };
+
   const logout = () => {
     console.log("Logout clicked");
+    navigate("/");
   };
 
   return (
@@ -39,7 +63,7 @@ function Header({ toggleSidebar, isOpen }) {
               onClick={toggleDropdown}
             >
               <img
-                src={ReactLogo}
+                src={profileImage}
                 alt="Profile"
                 className="w-[35px] h-[35px] rounded-full border-2 border-[#020143] ml-4 object-cover"
               />
@@ -52,17 +76,30 @@ function Header({ toggleSidebar, isOpen }) {
               } absolute right-0 mt-2 bg-white shadow-lg border border-[#020143] rounded-xl px-3 py-2 w-[180px] z-[100] text-center`}
             >
               <img
-                src={ReactLogo}
+                src={profileImage}
                 alt="React Logo"
                 className="w-[80px] h-[80px] my-3 mx-auto rounded-full object-cover border-2 border-[#020143]"
               />
 
-              <div className="text-[16px] font-medium text-[#020143] text-left ml-3">
+              <label className="cursor-pointer inline-block bg-[#b0afda] px-2 py-1 border border-[#020143] rounded-lg text-xs font-medium text-[#020143] hover:bg-[#f0f0ff] transition">
+                Change Profile Image
+                <input
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={handleImageChange}
+                  />
+                  </label>
+              
+              <div className="mt-5">
+              <div className="text-[16px] font-medium text-[#020143] text-center">
                 Welcome,
               </div>
+              
 
               <div className="font-bold text-[#020143] text-center">
-                Loading name...
+                {name}
+              </div>
               </div>
 
               <div className="h-[1px] bg-[#e0e0e0] my-2"></div>

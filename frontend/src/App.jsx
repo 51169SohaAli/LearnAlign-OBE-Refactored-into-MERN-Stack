@@ -27,7 +27,6 @@ function App() {
         <Route path="/instructor-dashboard" element={<InstructorDashboard />} />
         <Route path="/student-dashboard" element={<StudentDashboard />} />
         <Route path="/obe-dashboard" element={<OBEDashboard />} />
-
         <Route path="/courses" element={<Courses />} />
         <Route path="/assessments" element={<Assessments />} />
         <Route path="/progress-report" element={<ProgressReport />} />

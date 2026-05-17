@@ -22,13 +22,15 @@ router.post("/student", async (req, res) => {
 
     req.session.user ={
       id: user.student_id,
-      role:"student"
+      role:"student",
+      name: user.name
     };
 
     res.json({ 
       message: "Student login successful",
       role: "student",
-      id: user.student_id  
+      id: user.student_id,
+      name: user.name
     });
 });
 
@@ -49,13 +51,15 @@ router.post("/instructor", async (req, res) => {
 
   req.session.user ={
       id: user.instructor_id,
-      role: user.instructor_id === "f1517" ? "obe" : "instructor"
+      role: user.instructor_id === "f1517" ? "obe" : "instructor",
+      name: user.name
     };
 
     res.json({ 
       message: "Instructor login successful",
       role: req.session.user.role,
-      id: user.instructor_id 
+      id: user.instructor_id,
+      name: user.name
     });
 });
 

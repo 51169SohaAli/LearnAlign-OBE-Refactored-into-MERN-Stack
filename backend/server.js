@@ -61,3 +61,7 @@ app.use("/api/upload", uploadRoutes);
 //display courses
 const courseRoutes = require("./routes/courseRoutes");
 app.use("/api/courses", courseRoutes);
+
+//fetch clos
+const cloRoutes = require("./routes/cloRoutes");
+app.use("/api/clos", cloRoutes);

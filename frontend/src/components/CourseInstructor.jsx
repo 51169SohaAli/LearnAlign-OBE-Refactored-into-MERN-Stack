@@ -4,12 +4,13 @@ import axios from "axios";
 function CourseInstructor(){
 
     const [courses, setCourses] = useState([]);
+    const instructorId = localStorage.getItem("userId");
 
     useEffect(() =>{
 
         const fetchCourses = async () =>{
             try{
-                const response = await axios.get("http://localhost:5000/api/courses");
+                const response = await axios.get(`http://localhost:5000/api/courses/instructor/${instructorId}`);
 
                 setCourses(response.data);
             }catch(error){

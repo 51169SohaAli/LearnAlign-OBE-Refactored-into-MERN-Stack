@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import PageTitle from "../components/PageTitle";
@@ -9,14 +9,32 @@ import AnalyticCards from "../components/AnalyticCards";
 
 function OBEDashboard() {
   const [isOpen, setIsOpen] = useState(true);
+  const [semesterName, setSemesterName ] = useState("N/A");
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
 
-  const semesterName = localStorage.getItem("semesterName");
+  useEffect(()=>{
+    const fetchSemester = async () =>{
+      try{
+        const res = await fetch("http://localhost:5000/api/semester/current");
+        const data = await res.json();
 
-  console.log("Semester from storage:", semesterName);
+        if(res.ok && data.semester){
+          setSemesterName(data.semester);
+        }else{
+          setSemesterName("N/A");
+        }
+      }catch(err){
+        console.log(err);
+        setSemesterName("N/A");
+      }
+    };
+
+    fetchSemester();
+  },[]);
+
 
   return (
     <div className="min-h-screen bg-[#F8F9FA]">
