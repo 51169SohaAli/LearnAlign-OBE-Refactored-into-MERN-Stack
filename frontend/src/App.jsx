@@ -8,6 +8,7 @@ import StudentDashboard from "./pages/StudentDashboard";
 import OBEDashboard from "./pages/OBEDashboard";
 import InitiateOBEProcess from "./pages/InitiateOBEProcess";
 import { useLocation } from "react-router-dom";
+import CourseDetails from "./pages/CourseDetails";
 
 function App() {
   const location = useLocation();
@@ -28,6 +29,7 @@ function App() {
         <Route path="/student-dashboard" element={<StudentDashboard />} />
         <Route path="/obe-dashboard" element={<OBEDashboard />} />
         <Route path="/courses" element={<Courses />} />
+        <Route path="/course-details/:courseCode" element={<CourseDetails />} />
         <Route path="/assessments" element={<Assessments />} />
         <Route path="/progress-report" element={<ProgressReport />} />
         <Route path="/initiate-obeprocess" element={<InitiateOBEProcess />} />

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams} from "react-router-dom";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import PageTitle from "../components/PageTitle";
@@ -6,10 +7,39 @@ import CourseDetailsBox from "../components/CourseDetailsBox";
 
 function CourseDetails() {
   const [isOpen, setIsOpen] = useState(true);
+  const { courseCode} = useParams();
+  const [course, setCourse] = useState(null);
+
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+
+  const fetchCourse = async () => {
+
+    try {
+
+      const res = await fetch(
+        `http://localhost:5000/api/courses/${courseCode}`
+      );
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setCourse(data);
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+
+  };
+
+  fetchCourse();
+
+}, [courseCode]);
 
   return (
     <div className="min-h-screen bg-[#F8F9FA]">
@@ -28,7 +58,13 @@ function CourseDetails() {
       >
         {/* Page Title Section */}
         <PageTitle title="Course Details" subtitle="Home / Dashboard / Course Details" />
-        <CourseDetailsBox />
+        <CourseDetailsBox
+  courseCode={course?.course_code}
+  courseName={course?.course_name}
+  cloCount={course?.cloCount}
+  /*assessmentCount={course?.assessmentCount}*/
+  studentCount={course?.studentCount}
+/>
 
 
       </div>

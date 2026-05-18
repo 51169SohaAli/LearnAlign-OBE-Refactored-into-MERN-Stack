@@ -1,5 +1,8 @@
 const express = require("express");
 const Course = require("../models/Courses");
+const CLO = require("../models/CLO");
+/*const Assessment = require("../models/Assessment");*/
+const Enrollment = require("../models/Enrollment");
 const CourseOffering = require("../models/CourseOffering");
 
 const router = express.Router();
@@ -48,6 +51,52 @@ router.get("/instructor/:instructor_id", async (req, res) => {
         });
 
     }
+
+});
+
+router.get("/:courseCode", async (req, res) => {
+
+  try {
+
+    const courseCode = req.params.courseCode;
+
+    const course = await Course.findOne({
+      course_code: courseCode
+    });
+
+    if (!course) {
+      return res.status(404).json({
+        message: "Course not found"
+      });
+    }
+
+    const cloCount = await CLO.countDocuments({
+      courseId: course._id
+    });
+
+   /* const assessmentCount = await Assessment.countDocuments({
+      course_code: courseCode
+    }); */
+
+    const studentCount = await Enrollment.countDocuments({
+      course_code: courseCode
+    });
+
+    res.json({
+      course_code: course.course_code,
+      course_name: course.course_name,
+      cloCount,
+      /*assessmentCount,*/
+      studentCount
+    });
+
+  } catch (error) {
+
+    res.status(500).json({
+      message: error.message
+    });
+
+  }
 
 });
 
