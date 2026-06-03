@@ -18,6 +18,11 @@ const cloSchema = new mongoose.Schema({
     required: true,
   },
 
+  weightage: {
+    type: Number,
+    default: 0
+  },
+
   ploIds: [
     {
       type: mongoose.Schema.Types.ObjectId,

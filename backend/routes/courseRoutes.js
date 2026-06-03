@@ -54,6 +54,30 @@ router.get("/instructor/:instructor_id", async (req, res) => {
 
 });
 
+router.get("/code/:courseCode", async (req, res) => {
+  try {
+
+    const course = await Course.findOne({
+      course_code: req.params.courseCode
+    });
+
+    if (!course) {
+      return res.status(404).json({
+        message: "Course not found"
+      });
+    }
+
+    res.json(course);
+
+  } catch(error) {
+
+    res.status(500).json({
+      message: error.message
+    });
+
+  }
+});
+
 router.get("/:courseCode", async (req, res) => {
 
   try {
@@ -99,5 +123,7 @@ router.get("/:courseCode", async (req, res) => {
   }
 
 });
+
+
 
 module.exports = router;

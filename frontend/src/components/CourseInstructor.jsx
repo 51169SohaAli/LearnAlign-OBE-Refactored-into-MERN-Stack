@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function CourseInstructor(){
 
     const [courses, setCourses] = useState([]);
     const instructorId = localStorage.getItem("userId");
+    const navigate = useNavigate();
 
     useEffect(() =>{
 
@@ -54,7 +56,10 @@ function CourseInstructor(){
                             <td className="p-3 text-center text-[#020143] font-medium">{course.course_name}</td>
 
                             <td className="p-3 text-center text-[#020143] font-medium">
-                              <button className=" px-6 py-2 bg-[#020143] text-white rounded-lg cursor-pointer">Assign CLO Weightage</button> 
+                              <button 
+                              className=" px-6 py-2 bg-[#020143] text-white rounded-lg cursor-pointer"
+                              onClick={() => navigate(`/assignclo-weightage/${course.course_code}`)}
+                              >Assign CLO Weightage</button> 
                             </td>
 
                         </tr>

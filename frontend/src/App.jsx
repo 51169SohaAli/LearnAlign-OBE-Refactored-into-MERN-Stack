@@ -9,6 +9,7 @@ import OBEDashboard from "./pages/OBEDashboard";
 import InitiateOBEProcess from "./pages/InitiateOBEProcess";
 import { useLocation } from "react-router-dom";
 import CourseDetails from "./pages/CourseDetails";
+import AssignCLOWeightage from "./pages/AssignCLOWeightage";
 
 function App() {
   const location = useLocation();
@@ -30,6 +31,7 @@ function App() {
         <Route path="/obe-dashboard" element={<OBEDashboard />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/course-details/:courseCode" element={<CourseDetails />} />
+        <Route path="/assignclo-weightage/:courseCode" element={<AssignCLOWeightage />} />
         <Route path="/assessments" element={<Assessments />} />
         <Route path="/progress-report" element={<ProgressReport />} />
         <Route path="/initiate-obeprocess" element={<InitiateOBEProcess />} />
