@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Loginbox from "./components/Loginbox";
 import InstructorDashboard from "./pages/InstructorDashboard";
 import Courses from "./pages/Courses";
-import Assessments from "./pages/Assessments";
+import AddAssessments from "./pages/AddAssessments";
 import ProgressReport from "./pages/ProgressReport";
 import StudentDashboard from "./pages/StudentDashboard";
 import OBEDashboard from "./pages/OBEDashboard";
@@ -32,7 +32,7 @@ function App() {
         <Route path="/courses" element={<Courses />} />
         <Route path="/course-details/:courseCode" element={<CourseDetails />} />
         <Route path="/assignclo-weightage/:courseCode" element={<AssignCLOWeightage />} />
-        <Route path="/assessments" element={<Assessments />} />
+        <Route path="/add-assessments/:courseCode" element={<AddAssessments />} />
         <Route path="/progress-report" element={<ProgressReport />} />
         <Route path="/initiate-obeprocess" element={<InitiateOBEProcess />} />
       </Routes>

@@ -10,7 +10,6 @@ function Sidebar({ isOpen }) {
     links = [
     { name: "Dashboard", href: "/instructor-dashboard", icon: "bx bx-grid-alt" },
     { name: "Courses", href: "/courses", icon: "bx bx-book-alt" },
-    { name: "Assessments", href: "/assessments", icon: "bx bx-list-check" },
     { name: "Progress Report", href: "/progress-report", icon: "bx bx-line-chart" },
   ];
   }

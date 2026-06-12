@@ -2,8 +2,9 @@ import { useState } from "react";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import PageTitle from "../components/PageTitle";
+import AssessmentForm from "../components/AssessmentForm";
 
-function Assessments() {
+function AddAssessments() {
   const [isOpen, setIsOpen] = useState(true);
 
   const toggleSidebar = () => {
@@ -26,12 +27,16 @@ function Assessments() {
         }`}
       >
         {/* Page Title Section */}
-        <PageTitle title="Assessments" subtitle="Home / Assessments" />
+        <PageTitle title="Add Assessments" subtitle="Home / Courses / Add Assessments" />
         
       </div>
+
+       <div className="mt-15">
+  <AssessmentForm />
+</div>
 
     </div>
   );
 }
 
-export default Assessments;
+export default AddAssessments;

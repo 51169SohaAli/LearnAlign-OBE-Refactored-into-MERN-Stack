@@ -65,3 +65,7 @@ app.use("/api/courses", courseRoutes);
 //fetch clos
 const cloRoutes = require("./routes/cloRoutes");
 app.use("/api/clos", cloRoutes);
+
+//create assessment route
+const assessmentRoutes = require("./routes/assessmentRoutes");
+app.use("/api/assessments", assessmentRoutes);

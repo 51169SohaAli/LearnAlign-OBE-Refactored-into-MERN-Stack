@@ -120,7 +120,7 @@ const handleInstructorLogin = async (e) => {
                 <button 
                 type="submit"
                 id="student_id"
-                className="rounded-[20px] border border-[#00308f] bg-linear-to-r from-[#00308f] to-[#00008b] text-white text-[12px] font-bold px-11.25 py-3 tracking-[1px] uppercase hover:opacity-90 transition-opacity">Login</button>
+                className="rounded-[20px] border border-[#00308f] bg-linear-to-r from-[#00308f] to-[#00008b] text-white text-[12px] font-bold px-11.25 py-3 tracking-[1px] uppercase hover:opacity-90 transition-opacity cursor-pointer">Login</button>
             </form>
         </div>
         <div className="sign-up-container absolute left-0 w-[60%] h-full px-10 transition-all duration-700 ease-in-out opacity-0 z-1">
@@ -157,7 +157,7 @@ const handleInstructorLogin = async (e) => {
                 <button 
                 id="instructor_id"
                 type="submit"
-                className="rounded-[20px] border border-[#00308f] bg-linear-to-r from-[#00308f] to-[#00008b] text-white text-[12px] font-bold px-11.25 py-3 tracking-[1px] uppercase hover:opacity-90 transition-opacity">Login</button>
+                className="rounded-[20px] border border-[#00308f] bg-linear-to-r from-[#00308f] to-[#00008b] text-white text-[12px] font-bold px-11.25 py-3 tracking-[1px] uppercase hover:opacity-90 transition-opacity cursor-pointer">Login</button>
             </form>
         </div>
 

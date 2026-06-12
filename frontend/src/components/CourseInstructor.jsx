@@ -56,10 +56,16 @@ function CourseInstructor(){
                             <td className="p-3 text-center text-[#020143] font-medium">{course.course_name}</td>
 
                             <td className="p-3 text-center text-[#020143] font-medium">
+                                <div className="flex justify-center gap-3">
                               <button 
                               className=" px-6 py-2 bg-[#020143] text-white rounded-lg cursor-pointer"
                               onClick={() => navigate(`/assignclo-weightage/${course.course_code}`)}
                               >Assign CLO Weightage</button> 
+                              <button 
+                              className=" px-6 py-2 bg-[#020143] text-white rounded-lg cursor-pointer"
+                              onClick={() => navigate(`/add-assessments/${course.course_code}`)}
+                              >Add Assessment</button> 
+                              </div>
                             </td>
 
                         </tr>
