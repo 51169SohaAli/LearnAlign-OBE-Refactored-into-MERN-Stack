@@ -32,7 +32,7 @@ app.get("/test-session",(req,res) =>{
 });
 
 // DB connection
-mongoose.connect("mongodb://localhost:27017/OBE")
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.log(err));
 
