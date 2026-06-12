@@ -1,6 +1,6 @@
 const express = require("express");
 const Course = require("../models/Courses");
-const CLO = require("../models/CLO");
+const CLO = require("../models/Clo");
 /*const Assessment = require("../models/Assessment");*/
 const Enrollment = require("../models/Enrollment");
 const CourseOffering = require("../models/CourseOffering");
