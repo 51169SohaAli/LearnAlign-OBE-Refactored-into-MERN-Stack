@@ -1,5 +1,5 @@
 const express = require("express");
-const CLO = require("../models/CLO");
+const CLO = require("../models/Clo");
 
 const router = express.Router();
 
