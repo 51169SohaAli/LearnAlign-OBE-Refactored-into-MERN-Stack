@@ -37,15 +37,19 @@ router.post("/instructor", async (req, res) => {
 
   const user = await Instructor.findOne({ instructor_id });
 
-  if (!user) {
-    return res.status(400).json({ message: "Invalid instructor login" });
-  }
+console.log("USER FOUND:", user);
 
-  const isMatch = await bcrypt.compare(password, user.password);
+if (!user) {
+  return res.status(400).json({ message: "Invalid instructor login" });
+}
 
-  if (!isMatch) {
-    return res.status(400).json({ message: "Invalid instructor login." });
-  }
+const isMatch = await bcrypt.compare(password, user.password);
+
+console.log("PASSWORD MATCH:", isMatch);
+
+if (!isMatch) {
+  return res.status(400).json({ message: "Invalid instructor login." });
+}
 
   return res.json({
     message: "Login successful",
