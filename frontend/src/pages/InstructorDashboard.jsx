@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import PageTitle from "../components/PageTitle";
 import CourseCard from "../components/CourseCard";
-import API_URL from "../../config/api";
+import API_URL from "../config/api";
 
 
 function InstructorDashboard() {

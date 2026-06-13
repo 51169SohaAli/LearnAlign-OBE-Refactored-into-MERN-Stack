@@ -4,7 +4,7 @@ import Sidebar from "../components/Sidebar";
 import PageTitle from "../components/PageTitle";
 import SemesterDisplay from "../components/SemesterDisplay";
 import AnalyticCards from "../components/AnalyticCards";
-import API_URL from "../../config/api";
+import API_URL from "../config/api";
 
 
 

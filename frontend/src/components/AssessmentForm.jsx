@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import API_URL from "../../config/api";
+import API_URL from "../config/api";
 
 function AssessmentForm(){
     const [step, setStep] = useState(1);

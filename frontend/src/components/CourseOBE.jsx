@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import API_URL from "../../config/api";
+import API_URL from "../config/api";
 
 function CourseOBE(){
     const [showModal, setShowModal] = useState(false);
