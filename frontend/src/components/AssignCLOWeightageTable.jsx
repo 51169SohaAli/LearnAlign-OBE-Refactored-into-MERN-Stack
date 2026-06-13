@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import API_URL from "../../config/api";
 
 
 function AssignCLOWeightageTable(){
@@ -19,7 +20,7 @@ function AssignCLOWeightageTable(){
     try {
 
       const response = await axios.get(
-        `http://localhost:5000/api/courses/code/${courseCode}`
+        `${API_URL}/api/courses/code/${courseCode}`
       );
 
       setCourse(response.data);
@@ -41,7 +42,7 @@ useEffect(() => {
     try {
 
       const response = await axios.get(
-        `http://localhost:5000/api/clos/course/${course._id}`
+        `${API_URL}/api/clos/course/${course._id}`
       );
 
       setClos(response.data);
@@ -69,7 +70,7 @@ const handleWeightageChange = (cloId, value) => {
 const handleSaveWeightages = async () =>{
   try{
     await axios.put(
-      "http://localhost:5000/api/clos/weightages",
+      `${API_URL}/api/clos/weightages`,
       {clos}
     );
     alert("Weightages saved sucessfully");

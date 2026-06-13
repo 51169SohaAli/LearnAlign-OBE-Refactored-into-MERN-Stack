@@ -4,6 +4,7 @@ import Sidebar from "../components/Sidebar";
 import PageTitle from "../components/PageTitle";
 import SemesterDisplay from "../components/SemesterDisplay";
 import AnalyticCards from "../components/AnalyticCards";
+import API_URL from "../../config/api";
 
 
 
@@ -18,7 +19,7 @@ function OBEDashboard() {
   useEffect(()=>{
     const fetchSemester = async () =>{
       try{
-        const res = await fetch("http://localhost:5000/api/semester/current");
+        const res = await fetch(`${API_URL}/api/semester/current`);
         const data = await res.json();
 
         if(res.ok && data.semester){

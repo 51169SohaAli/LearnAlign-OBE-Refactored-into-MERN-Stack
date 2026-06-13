@@ -1,4 +1,5 @@
 import {useState} from "react";
+import API_URL from "../../config/api";
 
 function ProcessBox(){
     const [step, setStep] = useState(1);
@@ -15,7 +16,7 @@ function ProcessBox(){
   formData.append("semesterId", localStorage.getItem("semesterId"));
 
   try {
-    const res = await fetch("http://localhost:5000/api/upload/courses", {
+    const res = await fetch(`${API_URL}/api/upload/courses`, {
       method: "POST",
       body: formData
     });
@@ -36,7 +37,7 @@ const handleEnrollmentUpload = async () => {
   formData.append("semesterId", localStorage.getItem("semesterId"));
 
   try {
-    const res = await fetch("http://localhost:5000/api/upload/enrollments", {
+    const res = await fetch(`${API_URL}/api/upload/enrollments`, {
       method: "POST",
       body: formData
     });
@@ -75,7 +76,7 @@ const handleEnrollmentUpload = async () => {
                     <button
                     onClick={ async() => {
                         try{
-                            const res = await fetch("http://localhost:5000/api/semester", {
+                            const res = await fetch(`${API_URL}/api/semester`, {
                                 method: "POST",
                                 headers: {
                                     "Content-Type" : "application/json"

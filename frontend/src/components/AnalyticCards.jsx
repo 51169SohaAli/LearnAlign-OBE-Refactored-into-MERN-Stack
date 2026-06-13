@@ -1,5 +1,6 @@
 import AnalyticCard from "./AnalyticCard";
 import { useEffect, useState } from "react";
+import API_URL from "../../config/api";
 
 function AnalyticCards(){
     const [counts, setCounts] = useState({
@@ -9,7 +10,7 @@ function AnalyticCards(){
     });
 
     useEffect(() =>{
-        fetch("http://localhost:5000/api/dashboard/counts")
+        fetch(`${API_URL}/api/dashboard/counts`)
         .then(res => res.json())
         .then(data => setCounts(data))
         .catch(err => console.log(err));

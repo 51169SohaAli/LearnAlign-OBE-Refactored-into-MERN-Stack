@@ -3,7 +3,8 @@ import axios from "axios";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import PageTitle from "../components/PageTitle";
-import CourseCard from "../components/CourseCard"
+import CourseCard from "../components/CourseCard";
+import API_URL from "../../config/api";
 
 
 function InstructorDashboard() {
@@ -23,7 +24,7 @@ function InstructorDashboard() {
       const instructorId = localStorage.getItem("userId");
 
       const response = await axios.get(
-        `http://localhost:5000/api/courses/instructor/${instructorId}`
+        `${API_URL}/api/courses/instructor/${instructorId}`
       );
 
       setCourses(response.data);

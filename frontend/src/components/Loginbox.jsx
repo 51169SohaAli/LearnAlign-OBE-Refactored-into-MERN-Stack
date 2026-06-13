@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import API_URL from "../../config/api";
 
 function Loginbox() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const handleStudentLogin = async (e) => {
   e.preventDefault();
 
   try{
-    const res = await fetch ("http://localhost:5000/login/student", {
+    const res = await fetch (`${API_URL}/login/student`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -47,7 +48,7 @@ const handleInstructorLogin = async (e) => {
   e.preventDefault();
 
   try {
-    const res = await fetch("http://localhost:5000/login/instructor", {
+    const res = await fetch(`${API_URL}/login/instructor`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

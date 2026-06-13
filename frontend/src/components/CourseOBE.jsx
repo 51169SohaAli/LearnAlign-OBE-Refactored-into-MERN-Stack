@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import API_URL from "../../config/api";
 
 function CourseOBE(){
     const [showModal, setShowModal] = useState(false);
@@ -11,7 +12,7 @@ function CourseOBE(){
 
         const fetchCourses = async () =>{
             try{
-                const response = await axios.get("http://localhost:5000/api/courses");
+                const response = await axios.get(`${API_URL}/api/courses`);
 
                 setCourses(response.data);
             }catch(error){
@@ -30,7 +31,7 @@ const handleViewCLO = async (course) => {
     try {
 
         const response = await axios.get(
-            `http://localhost:5000/api/clos/course/${course._id}`
+            `${API_URL}/api/clos/course/${course._id}`
         );
 
         setClos(response.data);

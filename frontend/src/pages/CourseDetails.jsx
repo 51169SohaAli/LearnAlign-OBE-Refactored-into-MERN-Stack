@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import PageTitle from "../components/PageTitle";
 import CourseDetailsBox from "../components/CourseDetailsBox";
+import API_URL from "../../config/api";
 
 function CourseDetails() {
   const [isOpen, setIsOpen] = useState(true);
@@ -22,7 +23,7 @@ function CourseDetails() {
     try {
 
       const res = await fetch(
-        `http://localhost:5000/api/courses/${courseCode}`
+        `${API_URL}/api/courses/${courseCode}`
       );
 
       const data = await res.json();

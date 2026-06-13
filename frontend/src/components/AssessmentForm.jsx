@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import API_URL from "../../config/api";
 
 function AssessmentForm(){
     const [step, setStep] = useState(1);
@@ -19,7 +20,7 @@ function AssessmentForm(){
     try {
 
       const response = await axios.get(
-        `http://localhost:5000/api/courses/code/${courseCode}`
+        `${API_URL}/api/courses/code/${courseCode}`
       );
 
       setCourse(response.data);
@@ -36,7 +37,7 @@ function AssessmentForm(){
 const handleCreateAssessment = async () => {
   try{
     const response = await axios.post(
-      "http://localhost:5000/api/assessments",
+      `${API_URL}/api/assessments`,
       {
         courseId: course._id,
         assessmentName,
@@ -247,5 +248,6 @@ const handleGenerateQuestions = (e) => {
     );
 }
 export default AssessmentForm;
+
 
 

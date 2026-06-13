@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import API_URL from "../../config/api";
 
 function CourseInstructor(){
 
@@ -12,7 +13,7 @@ function CourseInstructor(){
 
         const fetchCourses = async () =>{
             try{
-                const response = await axios.get(`http://localhost:5000/api/courses/instructor/${instructorId}`);
+                const response = await axios.get(`${API_URL}/api/courses/instructor/${instructorId}`);
 
                 setCourses(response.data);
             }catch(error){
