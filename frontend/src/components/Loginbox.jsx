@@ -29,6 +29,7 @@ const handleStudentLogin = async (e) => {
     });
     const data = await res.json();
     console.log(data);
+    
 
     if (res.ok){
       alert("Student login successful!");
@@ -61,6 +62,11 @@ const handleInstructorLogin = async (e) => {
 
     const data = await res.json();
     console.log(data);
+    console.log("LOGIN RESPONSE:", data);
+    localStorage.setItem("role", data.role);
+localStorage.setItem("userId", data.id);
+console.log("ROLE SAVED:", localStorage.getItem("role"));
+console.log("USERID SAVED:", localStorage.getItem("userId"));
 
     if (res.ok) {
       localStorage.setItem("role", data.role);
