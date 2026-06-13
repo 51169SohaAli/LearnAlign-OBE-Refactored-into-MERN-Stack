@@ -33,7 +33,10 @@ router.post("/student", async (req, res) => {
 router.post("/instructor", async (req, res) => {
   const { instructor_id, password } = req.body;
 
-  console.log("INSTRUCTOR LOGIN BODY:", req.body);
+   console.log("🔥 ROUTE HIT");
+  console.log("BODY:", req.body);
+
+  return res.json({ test: "route working" });
 
   const user = await Instructor.findOne({ instructor_id});
 

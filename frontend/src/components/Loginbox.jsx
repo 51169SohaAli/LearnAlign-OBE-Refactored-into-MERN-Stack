@@ -47,6 +47,8 @@ const handleStudentLogin = async (e) => {
 const handleInstructorLogin = async (e) => {
   e.preventDefault();
 
+  console.log("SENDING:", instructorData);
+
   try {
     const res = await fetch(`${API_URL}/login/instructor`, {
       method: "POST",
