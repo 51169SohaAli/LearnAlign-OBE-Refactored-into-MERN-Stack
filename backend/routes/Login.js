@@ -33,29 +33,26 @@ router.post("/student", async (req, res) => {
 router.post("/instructor", async (req, res) => {
   const { instructor_id, password } = req.body;
 
-   console.log("🔥 ROUTE HIT");
   console.log("BODY:", req.body);
 
-  return res.json({ test: "route working" });
-
-  const user = await Instructor.findOne({ instructor_id});
+  const user = await Instructor.findOne({ instructor_id });
 
   if (!user) {
     return res.status(400).json({ message: "Invalid instructor login" });
   }
 
-   const isMatch = await bcrypt.compare(password, user.password);
+  const isMatch = await bcrypt.compare(password, user.password);
 
-  if(!isMatch){
-    return res.status(400).json({message: "Invalid instructor login."});
+  if (!isMatch) {
+    return res.status(400).json({ message: "Invalid instructor login." });
   }
 
-    return res.json({
-  message: "Login successful",
-  role: user.instructor_id === "f1517" ? "obe" : "instructor",
-  id: user.instructor_id,
-  name: user.name
-});
+  return res.json({
+    message: "Login successful",
+    role: user.instructor_id === "f1517" ? "obe" : "instructor",
+    id: user.instructor_id,
+    name: user.name
+  });
 });
 
 module.exports = router;

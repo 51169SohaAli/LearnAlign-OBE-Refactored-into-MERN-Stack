@@ -15,35 +15,30 @@ function InstructorDashboard() {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
-
+useEffect(() => {
   const fetchCourses = async () => {
-
     try {
-
       const userId = localStorage.getItem("userId");
 
-console.log("USER ID:", userId);
+      console.log("USER ID:", userId);
 
-axios.get(`${API_URL}/api/courses/instructor/${userId}`);
+      if (!userId) {
+        console.error("No instructor ID found in localStorage");
+        return;
+      }
 
-if (!userId) {
-  console.error("No instructor ID found in localStorage");
-  return;
-}
+      const response = await axios.get(
+        `${API_URL}/api/courses/instructor/${userId}`
+      );
 
       setCourses(response.data);
 
     } catch (error) {
-
       console.log(error);
-
     }
-
   };
 
   fetchCourses();
-
 }, []);
 
   return (
