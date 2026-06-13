@@ -8,6 +8,8 @@ const Instructor = require("../models/Instructor");
 router.post("/student", async (req, res) => {
   const { student_id, password } = req.body;
 
+  console.log("STUDENT LOGIN BODY:", req.body);
+
   const user = await Student.findOne({ student_id});
 
   if (!user) {
@@ -30,6 +32,8 @@ router.post("/student", async (req, res) => {
 
 router.post("/instructor", async (req, res) => {
   const { instructor_id, password } = req.body;
+
+  console.log("INSTRUCTOR LOGIN BODY:", req.body);
 
   const user = await Instructor.findOne({ instructor_id});
 
