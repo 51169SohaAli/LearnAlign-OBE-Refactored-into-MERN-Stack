@@ -18,13 +18,6 @@ app.use(cors({
   credentials: true
 }));
 
-//start session
-app.use(session({
-  secret: "secret",
-  resave: false,
-  saveUninitialized: false,
-  cookie: {secure: false}
-}));
 
 // routes
 const loginRoutes = require("./routes/Login");

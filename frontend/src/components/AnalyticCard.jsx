@@ -19,3 +19,4 @@ function AnalyticCard({title, count, icon}){
 }
 
 export default AnalyticCard;
+

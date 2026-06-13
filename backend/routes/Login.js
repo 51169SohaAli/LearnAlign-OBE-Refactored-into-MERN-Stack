@@ -20,18 +20,12 @@ router.post("/student", async (req, res) => {
     return res.status(400).json({message: "Invalid student login."});
   }
 
-    req.session.user ={
-      id: user.student_id,
-      role:"student",
-      name: user.name
-    };
-
-    res.json({ 
-      message: "Student login successful",
-      role: "student",
-      id: user.student_id,
-      name: user.name
-    });
+    return res.json({
+  message: "Student Login successful",
+  role: "student",
+  id: user.student_id,
+  name: user.name
+});
 });
 
 router.post("/instructor", async (req, res) => {
@@ -49,18 +43,12 @@ router.post("/instructor", async (req, res) => {
     return res.status(400).json({message: "Invalid instructor login."});
   }
 
-  req.session.user ={
-      id: user.instructor_id,
-      role: user.instructor_id === "f1517" ? "obe" : "instructor",
-      name: user.name
-    };
-
-    res.json({ 
-      message: "Instructor login successful",
-      role: req.session.user.role,
-      id: user.instructor_id,
-      name: user.name
-    });
+    return res.json({
+  message: "Login successful",
+  role: user.instructor_id === "f1517" ? "obe" : "instructor",
+  id: user.instructor_id,
+  name: user.name
+});
 });
 
 module.exports = router;
