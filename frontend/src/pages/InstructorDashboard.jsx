@@ -21,11 +21,16 @@ function InstructorDashboard() {
 
     try {
 
-      const instructorId = localStorage.getItem("userId");
+      const userId = localStorage.getItem("userId");
 
-      const response = await axios.get(
-        `${API_URL}/api/courses/instructor/${instructorId}`
-      );
+console.log("USER ID:", userId);
+
+axios.get(`${API_URL}/api/courses/instructor/${userId}`);
+
+if (!userId) {
+  console.error("No instructor ID found in localStorage");
+  return;
+}
 
       setCourses(response.data);
 
