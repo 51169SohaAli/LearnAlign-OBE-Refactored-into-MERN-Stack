@@ -47,3 +47,6 @@ The project was initially built using HTML, CSS, JavaScript, PHP, and MySQL, and
 
 ## 📷 Screenshots / Demo
 The MERN stack version is currently under development, and its screenshots and demo will be added upon completion. A video demonstration of the original PHP-based system is available on this link: https://github.com/51169SohaAli/LearnAlign-OBE/tree/main/videos
+
+## 🚀 Deployed Link
+The deployment link for this project is available at: https://learn-align-obe-refactored-into-mer.vercel.app/
